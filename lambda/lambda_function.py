@@ -37,7 +37,7 @@ def handler(event, context):
                     amount = float(row["price"])
                     key_agg = (sale_date, product)
                     aggregation[key_agg]["total_quantity"] += quantity
-                    aggregation[key_agg]["total_amount"] += amount
+                    aggregation[key_agg]["total_amount"] += amount*quantity
 
                 # Connect to Postgres
                 conn = pg8000.native.Connection(
